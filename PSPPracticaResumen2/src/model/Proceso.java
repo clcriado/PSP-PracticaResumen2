@@ -2,22 +2,22 @@ package model;
 
 public class Proceso{
 	
-	String nombre = "";
-	int tiempoLlegada = 0;
-	int rafaga = 0;
-	int quantum = 0;
+	String nombre;
+	int tiempoLlegada;
+	int rafaga;
+	int rafagaInicial;
+	int quantum;
 	
-	public Proceso(String nombre, int tiempoLlegada, int rafaga, int quantum) {
-		this.nombre = nombre;
-		this.tiempoLlegada = tiempoLlegada;
-		this.rafaga = rafaga;
-		this.quantum = quantum;
+	
+	public int getRafagaInicial() {
+		return rafagaInicial;
 	}
-	
+
 	public Proceso(String nombre, int tiempoLlegada, int rafaga) {
 		this.nombre = nombre;
 		this.tiempoLlegada = tiempoLlegada;
 		this.rafaga = rafaga;
+		this.rafagaInicial = rafaga;
 	}
 
 	public String getNombre() {

@@ -58,10 +58,9 @@ public class RR {
 				} else {
 					System.out.println("CICLO " + contadorCiclo + " - Proceso [id=" + listaLlegada.get(0).getNombre() + 
 							", rafaga pendiente="+ listaLlegada.get(0).getRafaga() +"] - TERMINADO");
-					resultado = (double) (contadorCiclo-listaLlegada.get(0).getTiempoLlegada())/listaLlegada.get(0).getRafaga();
-					lastResult = Math.round(resultado * 100.0) / 100.0;
-					listaRendimiento.add(lastResult);
-					listaPenalizacionString.add(listaLlegada.get(0).getNombre() + ": "+lastResult.toString());
+					resultado = (double) (contadorCiclo-listaLlegada.get(0).getTiempoLlegada())/listaLlegada.get(0).getRafagaInicial();
+					listaRendimiento.add(resultado);
+					listaPenalizacionString.add(listaLlegada.get(0).getNombre() + ": "+resultado.toString());
 					listaProcesos.remove(listaLlegada.get(0));
 					contadorCiclo++;
 					quantum-=1;
@@ -71,11 +70,6 @@ public class RR {
 			if(quantum == 0 && listaLlegada.get(0).getRafaga() != 0) {				
 			listaProcesos.add(listaProcesos.get(0));
 			listaProcesos.remove(0);
-			}
-			else if(quantum == 0 && listaLlegada.get(0).getRafaga() == 0) {
-
-				listaRendimiento.add(lastResult);
-				listaPenalizacionString.add(listaLlegada.get(0).getNombre() + ": "+lastResult.toString());
 			}
 		}
 		indicePenalizacion();
